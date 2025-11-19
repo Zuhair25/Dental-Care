@@ -1,0 +1,18 @@
+@import '../abstracts/variables';
+
+.btn-1 {
+    display: inline-block;
+    padding: 11px 35px;
+    background-color: $primary-color;
+    color: $text-color-dark;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    border-radius: $border-radius;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($primary-color, 10%);
+    }
+}

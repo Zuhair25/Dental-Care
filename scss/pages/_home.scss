@@ -1,0 +1,209 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.diente {
+    position: relative;
+
+    .diente-img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 250px;
+
+        @include breakpoint(tablet) {
+            display: none;
+        }
+    }
+
+    .diente-content {
+        text-align: center;
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .txt-p {
+            padding: 0 200px;
+            margin-bottom: 35px;
+
+            @include breakpoint(tablet) {
+                padding: 0;
+            }
+        }
+    }
+
+    .diente-group {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        margin-bottom: 50px;
+
+        @include breakpoint(tablet) {
+            flex-direction: column;
+            gap: 40px;
+        }
+    }
+
+    .diente-1 {
+        padding: 0 25px;
+        text-align: center;
+
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.Productos {
+    background-color: $background-color-alt;
+    text-align: center;
+
+    .productos-content {
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        p {
+            padding: 0 200px;
+            margin-bottom: 35px;
+            @include breakpoint(tablet) {
+                padding: 0;
+            }
+        }
+    }
+
+    .productos-group {
+        display: flex;
+        justify-content: space-around;
+        gap: 20px;
+        margin: 40px 0;
+
+        @include breakpoint(tablet) {
+            flex-direction: column;
+            gap: 30px;
+        }
+    }
+
+    .productos-1 {
+        padding: 20px;
+
+        img {
+            width: 36px;
+            height: 36px;
+            margin: 0 auto 10px auto;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.General {
+    display: flex;
+    align-items: center;
+    padding: 0;
+
+    @include breakpoint(tablet) {
+        flex-direction: column;
+    }
+
+    .general-1 {
+        width: 50%;
+        padding: 100px 150px;
+        background-color: #f0f0f0;
+
+        @include breakpoint(tablet) {
+            width: 100%;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 25px;
+        }
+    }
+
+    .general-2, .general-3 {
+        width: 50%;
+        min-height: 500px;
+        background-size: cover;
+        background-position: center;
+
+        @include breakpoint(tablet) {
+            display: none; 
+        }
+    }
+
+    .general-2 {
+        background-image: url(../images/blog1.jpg);
+    }
+
+    .general-3 {
+        background-image: url(../images/blog3.jpg);
+    }
+}
+
+.blog {
+    text-align: center;
+
+    h2 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+
+    > p {
+        margin-bottom: 40px;
+    }
+
+    .blog-content {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        margin-bottom: 40px;
+
+        @include breakpoint(tablet) {
+            flex-direction: column;
+        }
+    }
+
+    .blog-1 {
+        flex-basis: calc(33.3% - 20px);
+        text-align: left;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        border-radius: $border-radius;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            padding: 15px 20px 10px 20px;
+        }
+
+        p {
+            font-size: 0.9rem;
+            padding: 0 20px 20px 20px;
+        }
+    }
+}

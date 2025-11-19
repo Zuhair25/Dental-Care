@@ -1,0 +1,20 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 ($spacing-unit * 1.5);
+
+    @include breakpoint(mobile) {
+        padding: 0 $spacing-unit;
+    }
+}
+
+section {
+    padding: ($spacing-unit * 5) 0;
+
+    @include breakpoint(tablet) {
+        padding: ($spacing-unit * 3) 0;
+    }
+}
