@@ -1,0 +1,35 @@
+@use "../abstracts/variables" as *;
+
+h1, h2, h3, h4, h5, h6 {
+    color: $text-dark;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+// Fluid typography for main headings
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+    color: $text-muted;
+    line-height: 1.6;
+}
+
+a {
+    color: $primary-color;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: $secondary-color;
+    }
+}
