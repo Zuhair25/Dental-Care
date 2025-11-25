@@ -1,0 +1,119 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.header {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(images/bg.jpg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: ($spacing-unit * 2.5) 0;
+    
+    @include breakpoint(tablet) {
+        min-height: auto;
+        padding: ($spacing-unit * 5) ($spacing-unit * 1.5) ($spacing-unit * 3);
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .Logo {
+        color: $text-color-light;
+        font-size: 25px;
+        font-weight: $font-weight-extrabold;
+        text-transform: uppercase;
+    }
+
+    .navbar {
+        @include breakpoint(tablet) {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: $text-color-dark;
+            width: 100%;
+        }
+
+        ul {
+            display: flex;
+            @include breakpoint(tablet) {
+                flex-direction: column;
+            }
+
+            li {
+                a {
+                    font-size: 18px;
+                    padding: 20px;
+                    color: $text-color-light;
+                    display: block;
+                    font-weight: $font-weight-semibold;
+
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    #menu {
+        display: none;
+
+        &:checked ~ .navbar {
+            display: block;
+        }
+    }
+
+    .menu-icono {
+        width: 25px;
+        
+        @include breakpoint(tablet) {
+            cursor: pointer;
+        }
+    }
+    
+    label[for="menu"] {
+        display: none;
+        @include breakpoint(tablet) {
+            display: initial;
+        }
+    }
+
+    .header-content {
+        text-align: center;
+        padding: ($spacing-unit * 5) 0;
+
+        @include breakpoint(tablet) {
+            padding: ($spacing-unit * 3) 0;
+        }
+
+        h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+            color: $text-color-light;
+            margin-bottom: 15px;
+
+            @include breakpoint(tablet) {
+                font-size: 3rem;
+            }
+            @include breakpoint(mobile) {
+                font-size: 2.5rem;
+            }
+        }
+
+        p {
+            font-size: 1rem;
+            color: #c5c5c5;
+            padding: 0 250px;
+            margin-bottom: 25px;
+
+            @include breakpoint(tablet) {
+                padding: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,65 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.about-section {
+    text-align: center;
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        @include breakpoint(mobile) {
+            font-size: 2.5rem;
+        }
+    }
+    .subtitulo {
+        font-size: 1.1rem;
+        color: #777;
+        margin-bottom: 50px;
+    }
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-top: 50px;
+    text-align: left;
+
+    @include breakpoint(tablet) {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    img {
+        flex: 1;
+        max-width: 50%;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+
+        @include breakpoint(tablet) {
+            max-width: 100%;
+        }
+    }
+
+    div {
+        flex: 1;
+        max-width: 50%;
+        @include breakpoint(tablet) {
+            max-width: 100%;
+            text-align: center;
+        }
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        @include breakpoint(mobile) {
+            font-size: 2rem;
+        }
+    }
+
+    p {
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+}
