@@ -333,6 +333,63 @@ section {
     line-height: 1.6;
 }
 
+.with-background {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.with-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+.diente.with-background {
+    background-image: url(images/bg.jpg);
+}
+
+.blog.with-background {
+    background-image: url(images/bg2.jpg);
+}
+
+.with-background h2,
+.with-background p,
+.with-background h3 {
+    color: var(--text-color-light);
+}
+
+.with-background .diente-1 h3 {
+    color: var(--text-color-dark);
+}
+
+.with-background .diente-1 p {
+    color: #555;
+}
+
+.productos-destacados.with-background {
+    background-image: url(images/bg.png);
+}
+
+.about-section.with-background {
+    background-image: url(images/bg2.png);
+}
+
+.contact-section.with-background {
+    background-image: url(images/bg.jpg);
+}
+
+.faq-section.with-background {
+    background-image: url(images/bg2.jpg);
+}
+
+
 /* --- Testimonials Section --- */
 .testimonials-section {
     background-color: #f0f0f0;
