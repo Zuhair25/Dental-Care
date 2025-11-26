@@ -5,15 +5,23 @@
     --primary-color: #EACCB3;
     --text-color-light: #fffdfc;
     --text-color-dark: #121212;
+    --background-light: #f9f9f9;
+    --card-background: #fff;
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.08);
 }
 
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
 
 body {
     font-family: "Poppins", sans-serif;
-    background-color: #f9f9f9;
+    background-color: var(--background-light);
 }
 
 .container {
@@ -29,28 +37,44 @@ img {
 
 /* --- Header --- */
 .header {
-    background-image: linear-gradient(
-        rgba(0,0,0,0.7),
-        rgba(0,0,0,0.7)),
-        url(images/header-bg.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(images/bg.png);
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 60vh;
+    min-height: 70vh;
     display: flex;
     align-items: center;
-    padding: 40px 0;
+    padding: 80px 0 40px 0;
+    position: relative;
 }
 
 .menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
+    padding: 20px;
+    z-index: 1000;
+    transition: background-color 0.4s ease, padding 0.4s ease;
+}
+
+.menu.scrolled {
+    background-color: rgba(0,0,0,0.9);
+    padding: 15px 20px;
 }
 
 .Logo {
-    color: var(--text-color-light);
+    color: var(--primary-color);
     font-size: 25px;
     font-weight: 800;
     text-transform: uppercase;
+}
+
+.menu .navbar ul {
+    display: flex;
 }
 
 .menu .navbar ul li a {
@@ -59,25 +83,41 @@ img {
     color: var(--text-color-light);
     display: block;
     font-weight: 600;
+    transition: color 0.3s ease;
 }
-.menu label{
+
+.menu .navbar ul li a:hover {
+    color: var(--primary-color);
+}
+
+#menu {
+    display: none;
+}
+
+.menu-icono {
+    width: 25px;
+}
+
+.menu label {
     cursor: pointer;
     display: none;
 }
 
 .header-content {
     text-align: center;
+    width: 100%;
 }
 
 .header-content h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     line-height: 1.2;
     color: var(--text-color-light);
     margin-bottom: 15px;
+    font-weight: 800;
 }
 
 .header-content p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #c5c5c5;
     padding: 0 250px;
     margin-bottom: 25px;
@@ -85,20 +125,22 @@ img {
 
 .btn-1 {
     display: inline-block;
-    padding: 11px 35px;
+    padding: 12px 40px;
     background-color: var(--primary-color);
     color: var(--text-color-dark);
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
 }
 
 .btn-1:hover {
     background-color: #d8b492;
+    transform: translateY(-3px);
 }
 
-/* --- Main Content Sections (from index.html) --- */
+/* --- Main Content Sections --- */
 section {
     padding: 80px 0;
 }
@@ -126,15 +168,15 @@ section {
 }
 
 .diente-content .txt-p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #555;
     padding: 0 200px;
     margin-bottom: 35px;
 }
 
 .diente-group {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-bottom: 50px;
 }
@@ -150,6 +192,8 @@ section {
     object-fit: cover;
     border-radius: 50%;
     margin: 0 auto 15px auto;
+    border: 5px solid var(--card-background);
+    box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 .diente-1 h3 {
@@ -158,7 +202,7 @@ section {
     margin-bottom: 10px;
 }
 
-.Productos { /* This is for the section on index.html */
+.Productos {
     background-color: #e1e2e6;
     text-align: center;
 }
@@ -181,18 +225,18 @@ section {
 }
 
 .productos-1 img {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     margin: 0 auto 10px auto;
 }
 
 .productos-1 h3 {
     color: var(--text-color-dark);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .productos-content p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #555;
     padding: 0 200px;
     margin-bottom: 35px;
@@ -210,19 +254,11 @@ section {
     background-color: #f0f0f0;
 }
 
-.general-2, .general-3 {
+.general-img {
     width: 50%;
     min-height: 500px;
     background-size: cover;
     background-position: center;
-}
-
-.general-2 {
-    background-image: url(images/blog1.jpg);
-}
-
-.general-3 {
-    background-image: url(images/blog3.jpg);
 }
 
 .general-1 h2 {
@@ -232,9 +268,10 @@ section {
 }
 
 .general-1 p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #555;
     margin-bottom: 25px;
+    line-height: 1.7;
 }
 
 .blog {
@@ -250,247 +287,228 @@ section {
 .blog > p {
     color: #555;
     margin-bottom: 40px;
+    font-size: 1.1rem;
 }
 
 .blog-content {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-bottom: 40px;
 }
 
-.blog-1 {
-    flex-basis: calc(33.3% - 20px);
-    text-align: left;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    border-radius: 5px;
+.card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--shadow-color);
     overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.blog-1 img {
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.card-image img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
 }
 
-.blog-1 h3 {
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
     font-size: 1.5rem;
-    color: var(--text-color-dark);
-    padding: 15px 20px 10px 20px;
-}
-
-.blog-1 p {
-    font-size: 0.9rem;
-    color: #555;
-    padding: 0 20px 20px 20px;
-}
-
-/* --- Products Page (productos.html) --- */
-.productos-destacados {
-    text-align: center;
-    padding: 80px 0;
-}
-
-.productos-destacados h1 {
-    font-size: 3rem;
     color: var(--text-color-dark);
     margin-bottom: 10px;
 }
 
-.subtitulo {
-    font-size: 1.1rem;
-    color: #777;
+.card-content p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- Testimonials Section --- */
+.testimonials-section {
+    background-color: #f0f0f0;
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 100%;
+    background: linear-gradient(to right, #f0f0f0, transparent);
+    z-index: 2;
+}
+
+.testimonials-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 100%;
+    background: linear-gradient(to left, #f0f0f0, transparent);
+    z-index: 2;
+}
+
+.testimonials-section h2 {
+    font-size: 3rem;
+    color: var(--text-color-dark);
     margin-bottom: 50px;
 }
 
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+.testimonial-carousel {
+    max-width: 100%;
+    margin: 0 auto;
 }
 
-.product-card {
-    background-color: #fff;
+.testimonial-slider {
+    display: flex;
+    animation: scroll 40s linear infinite;
+}
+
+.testimonial-slide {
+    flex: 0 0 50%; /* Show two testimonials at a time */
+    max-width: 50%;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.testimonial-content {
+    background-color: var(--card-background);
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color-dark);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+/* --- FAQ Page (ayuda.html) --- */
+.faq-section {
+    padding: 80px 0;
     text-align: center;
-    padding-bottom: 20px;
+}
+
+.faq-section h1 {
+    font-size: 3rem;
+    color: var(--text-color-dark);
+    margin-bottom: 10px;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 50px auto 0 auto;
+    text-align: left;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.faq-question {
+    width: 100%;
+    background-color: var(--card-background);
+    border: none;
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #f5f5f5;
+}
+
+.faq-toggle {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--primary-color);
     transition: transform 0.3s ease;
 }
 
-.product-card:hover {
-    transform: translateY(-5px);
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    background-color: var(--card-background);
+    transition: max-height 0.4s ease-out;
 }
 
-.product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-
-.product-card h3 {
-    font-size: 1.6rem;
-    color: var(--text-color-dark);
-    margin-bottom: 10px;
-    padding: 0 15px;
-}
-
-.product-card p {
-    font-size: 0.95rem;
-    color: #666;
-    margin-bottom: 15px;
-    padding: 0 15px;
-}
-
-.product-card .precio {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    display: block;
-    margin-bottom: 20px;
-}
-
-/* --- About Us Page (nosotros.html) --- */
-.about-section {
-    padding: 80px 0;
-    text-align: center;
-}
-
-.about-section h1 {
-    font-size: 3rem;
-    color: var(--text-color-dark);
-    margin-bottom: 10px;
-}
-
-.about-content {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    margin-top: 50px;
-    text-align: left;
-}
-
-.about-content img {
-    flex: 1;
-    max-width: 50%;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.about-content div {
-    flex: 1;
-    max-width: 50%;
-}
-
-.about-content h2 {
-    font-size: 2.5rem;
-    color: var(--text-color-dark);
-    margin-bottom: 20px;
-}
-
-.about-content p {
+.faq-answer p {
+    padding: 0 20px 20px 20px;
     font-size: 1rem;
     color: #555;
     line-height: 1.6;
-    margin-bottom: 15px;
 }
 
-/* --- Contact Page (contacto.html) --- */
-.contact-section {
-    padding: 80px 0;
-    text-align: center;
+.faq-item.active .faq-answer {
+    max-height: 200px;
 }
 
-.contact-section h1 {
-    font-size: 3rem;
-    color: var(--text-color-dark);
-    margin-bottom: 10px;
-}
-
-.contact-wrapper {
-    display: flex;
-    gap: 50px;
-    margin-top: 50px;
-    text-align: left;
-}
-
-.contact-form, .contact-info {
-    flex: 1;
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--text-color-dark);
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: "Poppins", sans-serif;
-    font-size: 1rem;
-    color: var(--text-color-dark);
-}
-
-.form-group textarea {
-    resize: vertical;
-}
-
-.contact-info h3 {
-    font-size: 2rem;
-    color: var(--text-color-dark);
-    margin-bottom: 20px;
-}
-
-.contact-info p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.map-placeholder {
-    background-color: #e0e0e0;
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-    border-radius: 5px;
-    margin-top: 30px;
-    font-size: 1.2rem;
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
 }
 
 /* --- Footer --- */
 .footer {
-    padding: 60px 0;
-    background-color: var(--text-color-dark);
+    padding: 80px 0;
+    background-color: #121212;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .link h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--text-color-light);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .link a {
@@ -498,11 +516,12 @@ section {
     color: #c5c5c5;
     display: block;
     margin-bottom: 10px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, padding-left 0.3s ease;
 }
 
 .link a:hover {
     color: var(--primary-color);
+    padding-left: 5px;
 }
 
 /* --- Responsive Design --- */
@@ -520,29 +539,33 @@ section {
         top: 100%;
         left: 0;
         right: 0;
-        background-color: var(--text-color-dark);
+        background-color: #121212;
         display: none;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .menu .navbar ul li {
+    .menu .navbar ul {
+        flex-direction: column;
         width: 100%;
     }
-
-    #menu:checked ~ .navbar {
-        display: initial;
-    }
-
-    .header {
-        min-height: 0vh;
-        padding: 80px 30px 50px 30px;
-    }
-
-    .header-content {
+    
+    .menu .navbar ul li {
+        width: 100%;
         text-align: center;
     }
 
+    #menu:checked ~ .navbar {
+        display: flex;
+    }
+
+    .header {
+        min-height: auto;
+        padding: 100px 30px 50px 30px;
+    }
+
     .header-content h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 
     .header-content p {
@@ -556,14 +579,13 @@ section {
     .diente-img {
         display: none;
     }
+    
+    .diente-group {
+        grid-template-columns: 1fr;
+    }
 
     .diente-content .txt-p {
         padding: 0;
-    }
-
-    .diente-group {
-        flex-direction: column;
-        margin-bottom: 30px;
     }
 
     .productos-content p {
@@ -576,69 +598,34 @@ section {
 
     .general-1 {
         width: 100%;
-        padding: 30px;
+        padding: 50px 30px;
         text-align: center;
     }
 
-    .general-2, .general-3 {
-        display: none;
+    .general-img {
+        width: 100%;
+        min-height: 300px;
     }
 
     .blog-content {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 
-    .productos-destacados h1,
-    .about-section h1,
-    .contact-section h1 {
-        font-size: 2.5rem;
+    .testimonials-section::before,
+    .testimonials-section::after {
+        width: 50px;
     }
 
-    .subtitulo {
-        font-size: 1rem;
-        margin-bottom: 30px;
-    }
-
-    .product-grid {
-        grid-template-columns: 1fr; /* Stack products on small screens */
-    }
-
-    .product-card {
-        margin: 0 auto; /* Center cards */
-        max-width: 350px; /* Limit width for better readability */
-    }
-
-    .about-content {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .about-content img,
-    .about-content div {
+    .testimonial-slide {
+        flex: 0 0 100%;
         max-width: 100%;
     }
 
-    .about-content h2 {
-        font-size: 2rem;
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-200%); }
     }
-
-    .contact-wrapper {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .contact-form, .contact-info {
-        padding: 30px;
-    }
-
-    .contact-info h3 {
-        font-size: 1.8rem;
-    }
-
-    .footer {
-        padding: 30px;
-    }
-
+    
     .footer-content {
         flex-direction: column;
         text-align: center;
@@ -648,28 +635,3 @@ section {
         margin-bottom: 20px;
     }
 }
-
-@media (max-width: 767px) {
-    .container {
-        padding: 0 15px;
-    }
-
-    .header-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .productos-destacados h1,
-    .about-section h1,
-    .contact-section h1 {
-        font-size: 2rem;
-    }
-
-    .about-content h2 {
-        font-size: 1.8rem;
-    }
-
-    .contact-info h3 {
-        font-size: 1.5rem;
-    }
-}
-
